@@ -38,7 +38,7 @@ public class Operations {
             System.out.println(e.getMessage());
         }
     }
-    public static void listTables(){
+    public static void listTableNames(){
         try{
             statement = conn.createStatement();
             statement.setQueryTimeout(30);
