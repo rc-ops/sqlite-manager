@@ -2,7 +2,9 @@ package com.rcops.sqlite.manager;
 
 import java.util.Scanner;
 
-public class ShowMenu {
+import static com.rcops.sqlite.manager.Operations.conn;
+
+public class Menu {
     protected static void mostrarMenu() {
         System.out.println("Bem-vindo! Por favor insira o caminho do banco de dados no seguinte formato");
         System.out.println("C:\\Users\\YourUserName\\Documents\\banco-dados.db");
@@ -13,16 +15,21 @@ public class ShowMenu {
 
         boolean selected = false;
         while (!selected) {
-            System.out.println("Menu de opções");
+            System.out.println("==== Menu de opções ====");
             System.out.println("1 - Ver tabelas disponíveis");
-            System.out.println("2 - Sair");
+            System.out.println("2 - Mais opções");
+            System.out.println("3 - Sair");
             System.out.print("Opção: ");
 
             int opcao = sc.nextInt();
 
             switch (opcao) {
                 case 1:
+                    Operations.listTables();
+                    break;
+                case 2:
                     while (!selected) {
+                        System.out.println("==== Mostrando mais opções ====");
                         System.out.println("1 - Visualizar os registros");
                         System.out.println("2 - Inserir um novo registro");
                         System.out.println("3 - Atualizar um registro");
@@ -47,7 +54,7 @@ public class ShowMenu {
                     }
                     selected = true;
                     break;
-                case 2:
+                case 3:
                     Operations.disconnect();
                     selected = true;
                     break;
