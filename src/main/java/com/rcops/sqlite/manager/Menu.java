@@ -31,9 +31,22 @@ public class Menu {
                     String tableName = sc.next();
                     Operations.listColumnNames(tableName);
                     System.out.println("O que deseja fazer com a tabela selecionada? ");
-                    System.out.println("1 - Inserir um novo registro");
-                    System.out.println("2 - Atualizar um registro");
-                    System.out.println("3 - Sair");
+                    System.out.println("1 - Ver registros");
+                    System.out.println("2 - Inserir um novo registro");
+                    System.out.println("3 - Atualizar um registro");
+                    System.out.println("4 - Sair");
+                    System.out.print("Opção: ");
+                    opcao = sc.nextInt();
+                    if (opcao == 1){
+                        System.out.println("Quais registros deseja visualizar?");
+                        System.out.println("1 - De todas as colunas");
+                        System.out.println("2 - Colunas específicas");
+                        System.out.print("Opção: ");
+                        opcao = sc.nextInt();
+                        if (opcao == 1){
+                            Operations.listColumnContents(1, tableName);
+                        }
+                    } // Todo: Add opções 2, 3 e 4
                     break;
                 case 3:
                     Operations.disconnect();
